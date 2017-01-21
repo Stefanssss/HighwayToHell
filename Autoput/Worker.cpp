@@ -49,16 +49,16 @@ void Worker::bill()
 
 void Worker::workersOnRoad()
 {
-	std::string cname,name1,surname1;
+	std::string cname, name1, surname1;
 	int n;
 	std::ofstream file("WorkersOnRoad.txt", std::ios::app);
 	std::cout << "Unesite ime kompanije: " << std::endl;
 	std::cin >> name1;
-	file << name<<":"<<std::endl;
+	file << name << ":" << std::endl;
 	std::cout << "Unesite broj radnika: " << std::endl; std::cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		std::cout << "Unesite ime radnika: "<<std::endl; std::cin >> name1;
+		std::cout << "Unesite ime radnika: " << std::endl; std::cin >> name1;
 		std::cout << "Unesite prezime radnika: " << std::endl; std::cin >> surname1;
 		file << std::setw(10) << std::right << name1;
 		file << std::setw(10) << std::right << surname1;
@@ -70,5 +70,5 @@ void Worker::workersOnRoad()
 void Worker::print()
 {
 	Human::print();
-	std::cout << "is successfully registred.";
+	std::cout << "Identifikacioni broj: " << id << std::endl;
 }

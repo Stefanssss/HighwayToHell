@@ -2,15 +2,16 @@
 
 
 
-Human::Human(){}
-Human::Human(std::string name,std::string surname):name(name),surname(surname)
+Human::Human() {}
+Human::Human(std::string name, std::string surname) :name(name), surname(surname)
 {
 }
 
 void Human::print()
 {
-	std::cout << std::setw(10) << std::left << name;
-	std::cout << std::setw(10) << std::left << surname;
+	std::cout << "Ime:" << name << std::endl;
+	std::cout << "Prezime:" << surname << std::endl;
+
 }
 
 

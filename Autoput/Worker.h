@@ -1,11 +1,11 @@
 #pragma once
-#include "Human.h"
-#include "Functions.h" //klasa koja sadrzi neke pomocne funckije
 #include <fstream>
-#include<tuple>
 #include <ctime>
 #include <algorithm>
-class Worker: public Human, public Functions
+#include "Human.h"
+#include "UsefulFunctions.h" //klasa koja sadrzi neke pomocne funckije
+
+class Worker: public Human
 {
 public:
 	Worker(bool=false);

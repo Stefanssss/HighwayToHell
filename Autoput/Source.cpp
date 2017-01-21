@@ -2,7 +2,6 @@
 #include "Worker.h"
 #include "RoadSection.h"
 #include <vector>
-#include "Source.h"
 
 int main()
 {
@@ -11,23 +10,28 @@ int main()
 	int i = 0;
 	do
 	{
-		system("CLS");
+		//system("CLS");
 		std::string username, password;
-		std::cout << "Molimo radnika da unese podatke." << std::endl;
-		std::cin >> username >> password;
+		std::cout << "Molimo radnika da unese podatke:" << std::endl;
+		std::cout << "	Unesite korisnicko ime: ";
+		std::cin >> username;
+		std::cout << "	Unesite password: ";
+		std::cin >> password;
+
 		if (worker1.login(username, password))
 		{
+			std::cout << std::endl;
 			worker1.print();
-			i++;
+			i=1;
 		}
 		else
 			std::cout << "Greske pri unosu podataka, unesite podatke ponovo." << std::endl;
 	} while (i==0);
-	system("CLS");
+	//system("CLS");
 	int temp;
 	do
 	{
-		std::cout << "Izaberite funkciju:" << std::endl;
+		std::cout << "\nIzaberite funkciju:" << std::endl;
 		std::cout << "Za izdavanje racuna unesite 1"<<std::endl;
 		std::cout << "Za rad sa dionicama unesite 2" << std::endl;
 		std::cout << "Za prikaz o stanju na dionicam unesite 3" << std::endl;
@@ -36,14 +40,14 @@ int main()
 		if (temp == 1)
 		{
 			Driver dr;
-			dr.insertDriver();
-			dr.print();
-			worker1.bill();
+			//  dr.insertDriver();
+			//  dr.print();
+			//  worker1.bill();
 		}
 		else if (temp == 2)
 		{
 			std::string loc1, loc2;
-			std::vector<RoadSection> roads;
+			//  std::vector<RoadSection> roads;
 			//treba unijeti podatke iz datoteke u vektor
 			std::cout << "Unesite pocetnu lokaciju:" << std::endl;
 			std::cin >> loc1;
@@ -51,9 +55,9 @@ int main()
 			std::cin >> loc2;
 			RoadSection road(loc1,loc2);
 			//Sada treba pronaci lokaciju u vektoru i izmijeniti odrediti funkcionalnost lokacije
-			for (auto& it : roads)
+			/*  for (auto& it : roads)
 				if (it == road)
-					it.workable();
+					it.workable();  */
 			//treba azurirati datoteku u kojoj se nalaze lokacije
 		}
 		else if (temp == 3)
@@ -64,7 +68,7 @@ int main()
 		else if (temp == 4)
 		{
 			//evidencija o izvodjacima radova
-			worker1.workersOnRoad();
+			//  worker1.workersOnRoad();
 		}
 		if (temp != 1 && temp != 2 && temp != 3 && temp!=4 && temp != 0)
 		{

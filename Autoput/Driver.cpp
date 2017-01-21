@@ -1,7 +1,7 @@
 #include "Driver.h"
 
 
-Driver::Driver(std::string name, std::string surename,std::string category,std::string plates):category(category),plates(plates)
+Driver::Driver(std::string name, std::string surename, std::string category, std::string plates) :category(category), plates(plates)
 {
 	Human(name, surename);
 }
@@ -21,11 +21,14 @@ void Driver::insertDriver()
 void Driver::print()
 {
 	std::ofstream file("Drivers.txt", std::ios::app);
-	file << std::setw(10) << std::left << name;
-	file << std::setw(10) << std::left << surname;
-	file << std::setw(10) << std::left << category;
-	file << std::setw(10) << std::left << plates << std::endl;
+	if (file.good()) {
+		file << std::setw(17) << std::left << const_cast<char*>(name.c_str()); //formatiran upis u datoteku (na kraju se string formatira u array of chars)
+		file << std::setw(17) << std::left << const_cast<char*>(surname.c_str());
+		file << std::setw(25) << std::left << const_cast<char*>(plates.c_str());
+		file << std::setw(10) << std::left << const_cast<char*>(category.c_str()) << std::endl;
+		file.close();
+	}
+	else
+		std::cout << "Problem prilikom otvaranja datoteke koja sadrzi podatke o vozacima.";
 }
-Driver::~Driver()
-{
-}
+
