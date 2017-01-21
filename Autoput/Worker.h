@@ -11,8 +11,8 @@ public:
 	Worker(std::string, std::string);
 	~Worker();
 	bool login(std::string,std::string);
-	void ticket(std::tuple<std::time_t, std::string>&);
 	void bill();
+	void workersOnRoad(); 
  	void print();
 private:
 	void skipLinesInFile(std::ifstream&,int); //pomocna funkcija koja ce nam pomoci kod pozicioniranja u datoteci

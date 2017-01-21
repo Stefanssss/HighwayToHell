@@ -27,9 +27,10 @@ int main()
 	do
 	{
 		std::cout << "Izaberite funkciju:" << std::endl;
-		std::cout << "Za izdavanje racuna unesite 1";
-		std::cout << "Za rad sa dionicama unesite 2";
-		std::cout << "Za prikaz o stanju na dionicam unesite 3";
+		std::cout << "Za izdavanje racuna unesite 1"<<std::endl;
+		std::cout << "Za rad sa dionicama unesite 2" << std::endl;
+		std::cout << "Za prikaz o stanju na dionicam unesite 3" << std::endl;
+		std::cout << "Za evidenciju o izvodjacima radova unesite 4" << std::endl;
 		std::cin >> temp;
 		if (temp == 1)
 		{
@@ -40,11 +41,13 @@ int main()
 		}
 		else if (temp == 2)
 		{
-			std::string loc1, loc2, c;
+			std::string loc1, loc2;
 			std::vector<RoadSection> roads;
 			//treba unijeti podatke iz datoteke u vektor
-			std::cout << "Unesite dionicu za koju mijenjate funkcionalnost u formatu: lokacija-lokacija" << std::endl;
-			std::cin >> loc1 >> c >> loc2;
+			std::cout << "Unesite pocetnu lokaciju:" << std::endl;
+			std::cin >> loc1;
+			std::cout << "Unesite krajnju lokaciju:" << std::endl;
+			std::cin >> loc2;
 			RoadSection road(loc1,loc2);
 			//Sada treba pronaci lokaciju u vektoru i izmjeniti odrediti funkcionalnost lokacije
 			for (auto& it : roads)
@@ -54,15 +57,18 @@ int main()
 		}
 		else if (temp == 3)
 		{
+			std::fstream dat("Gradovi.txt");
 			//uitavanje o stanju puteva iz datoteke i ispisivanje na standardni izlaz 
 		}
-		if (temp != 1 && temp != 2 && temp != 3 && temp != 0)
+		else if (temp == 4)
+		{
+			//evidencija o izvodjacima radova
+			worker1.workersOnRoad();
+		}
+		if (temp != 1 && temp != 2 && temp != 3 && temp!=4 && temp != 0)
 		{
 			std::cout << "Greska pri unosu, pokusajte ponovo.";
 		}
 	} while (temp != 0);
-	std::cout << "You came to toolbooth" << std::endl << "Welcome";
-	std::tuple<std::time_t, std::string> location;
-	worker1.ticket(location);
 	std::getchar();
 }
