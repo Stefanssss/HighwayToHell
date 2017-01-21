@@ -3,7 +3,7 @@
 
 
 Human::Human(){}
-Human::Human(std::string name,std::string surname,std::string id):name(name),surname(surname),id(id)
+Human::Human(std::string name,std::string surname):name(name),surname(surname)
 {
 }
 

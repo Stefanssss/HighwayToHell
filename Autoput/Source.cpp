@@ -33,7 +33,9 @@ int main()
 		std::cin >> temp;
 		if (temp == 1)
 		{
-			worker1.insertDriver();
+			Driver dr;
+			dr.insertDriver();
+			dr.print();
 			worker1.bill();
 		}
 		else if (temp == 2)

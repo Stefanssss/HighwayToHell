@@ -3,7 +3,11 @@
 class Driver: public Human
 {
 public:
-	Driver(std::string,std::string,std::string);
+	Driver(std::string=0,std::string=0,std::string=0,std::string=0);
+	void insertDriver();
+	void print();
 	~Driver();
+private:
+	std::string category, plates;
 };
 

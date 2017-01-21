@@ -4,11 +4,10 @@
 
 Worker::Worker() {}
 
-Worker::Worker(std::string name, std::string surname, std::string id)
+Worker::Worker(std::string name, std::string surname)
 {
 	this->name = name;
 	this->surname = surname;
-	this->id = id;
 }
 
 
@@ -61,19 +60,12 @@ void Worker::ticket(std::tuple<std::time_t, std::string>& location)
 	std::make_tuple();
 }
 
-void Worker::insertDriver()
+void Worker::bill()
 {
-	std::string name1, surname1, temp, category,plates;
-	std::cout << "Unesite ime vozaca:" << std::endl;
-	std::cin >> name1;
-	std::cout << "Unesite prezime vozaca: " << std::endl;
-	std::cin >> surname1;
-	std::cout << "Unesite kategoriju vozila: " << std::endl;
-	std::cin >> category;
-	std::cout << "Uesite registraciju vozila: " << std::endl;
-	std::cin >> plates;
-	//sada treba upisati u datoteku
+
 }
+
+
 
 void Worker::print()
 {
