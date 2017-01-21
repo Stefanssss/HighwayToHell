@@ -20,7 +20,7 @@ int main()
 			i++;
 		}
 		else
-			std::cout << "Greske pri unosu podataka, unesite podatke ponovo" << std::endl;
+			std::cout << "Greske pri unosu podataka, unesite podatke ponovo." << std::endl;
 	} while (i==0);
 	system("CLS");
 	int temp;
