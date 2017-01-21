@@ -1,9 +1,5 @@
 #include "Worker.h"
 
-
-
-Worker::Worker() {}
-
 Worker::Worker(std::string name, std::string surname)
 {
 	this->name = name;
@@ -11,9 +7,7 @@ Worker::Worker(std::string name, std::string surname)
 }
 
 
-Worker::~Worker()
-{
-}
+Worker::~Worker() {}
 
 bool Worker::login(std::string username, std::string password) //uzima red po red iz dateteke koja sadrzi podatke o radnicima i pretrazuje da li za dati username i pass postoji takav radnik u datoteci
 {
@@ -44,14 +38,6 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 	else
 		std::cout << "Greska pri otvaranju baze podataka koja sadrzi podatke o radnicima.";
 	return false;
-
-}
-
-void skipLinesInFile(std::ifstream& dat, int n) //preskace odredjen broj linija u datoteci
-{
-	std::string temp;
-	for (int i = 0;i < n;i++)
-		getline(dat, temp);
 
 }
 
