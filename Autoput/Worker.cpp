@@ -42,27 +42,36 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 
 }
 
-void Worker::bill()
+void Worker::bill(const Driver &other)
 {
-
+	std::ofstream dat("Bill.txt");
+	if (dat.good())
+	{
+		dat << name << surname;
+		//treba upisati datoteku kako ce izgledati pocetni racun
+	}
+	else
+		std::cout << "Datoteka za upis racuna nije uspjesno otvorena.";
+	dat.close();
 }
 
 void Worker::workersOnRoad()
 {
-	std::string cname, name1, surname1;
+	std::string companyName, name1, surname1;
 	int n;
 	std::ofstream file("WorkersOnRoad.txt", std::ios::app);
-	std::cout << "Unesite ime kompanije: " << std::endl;
-	std::cin >> name1;
-	file << name << ":" << std::endl;
-	std::cout << "Unesite broj radnika: " << std::endl; std::cin >> n;
+	std::cout << "	Unesite ime kompanije: " << std::endl;
+	std::cin >> companyName;
+	file <<"Ime kompanije:  "<< companyName << std::endl;
+	std::cout << "	Unesite broj radnika: " << std::endl; std::cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		std::cout << "Unesite ime radnika: " << std::endl; std::cin >> name1;
-		std::cout << "Unesite prezime radnika: " << std::endl; std::cin >> surname1;
-		file << std::setw(10) << std::right << name1;
-		file << std::setw(10) << std::right << surname1;
+		std::cout << "	Unesite ime radnika: " << std::endl; std::cin >> name1;
+		std::cout << "	Unesite prezime radnika: " << std::endl; std::cin >> surname1;
+		file << name1;
+		file << surname1<<std::endl;
 	}
+	file << "==========================================="<<std::endl;
 }
 
 

@@ -62,7 +62,8 @@ int main()
 		}
 		else if (temp == 3)
 		{
-			std::fstream dat("Gradovi.txt");
+			std::ifstream dat("Gradovi.txt");
+			printFile(dat);
 			//ucitavanje o stanju puteva iz datoteke i ispisivanje na standardni izlaz 
 		}
 		else if (temp == 4)
