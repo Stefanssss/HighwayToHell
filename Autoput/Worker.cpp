@@ -1,18 +1,11 @@
 #include "Worker.h"
 
-Worker::Worker(std::string name, std::string surname)
-{
-	this->name = name;
-	this->surname = surname;
-}
-
-
-Worker::~Worker() {}
+Worker::Worker(bool li) : isLoggedIn(li) {} //po defaultu radnik nije ulogovan dok se ne izvrsi provjera
 
 bool Worker::login(std::string username, std::string password) //uzima red po red iz dateteke koja sadrzi podatke o radnicima i pretrazuje da li za dati username i pass postoji takav radnik u datoteci
 {
 	std::ifstream file("Workers.txt");
-	std::string line, usernameFile, passFile; //usernameFile - username iz datoteke koji se poredi sa usernameom koji smo poslali kao argument funkcije , isto je i za passFile
+	std::string line, usernameFile, passFile, temp; //usernameFile - username iz datoteke koji se poredi sa usernameom koji smo poslali kao argument funkcije , isto je i za passFile
 	if (file.good())
 	{
 		skipLinesInFile(file, 2);
@@ -27,7 +20,15 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 				if (passFile == password)
 				{
 					std::cout << "Uspjesno prijavljivanje.";
-					return true; // uspjesna prijava
+					isLoggedIn = true;
+					temp = line.substr(5, 16);
+					temp.erase(remove_if(temp.begin(), temp.end(), static_cast<int(*)(int)>(isspace)), temp.end());
+					this->name = temp;
+					temp = line.substr(22, 16);
+					temp.erase(remove_if(temp.begin(), temp.end(), static_cast<int(*)(int)>(isspace)), temp.end());
+					this->surname = temp;
+					this->id = std::stoi(line.substr(0, 1));
+					return true;// uspjesna prijava
 				}
 				else
 					std::cout << "Pogresan password.";

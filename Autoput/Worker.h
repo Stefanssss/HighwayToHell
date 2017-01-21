@@ -8,11 +8,13 @@
 class Worker: public Human, public Functions
 {
 public:
-	Worker(std::string=0, std::string=0);
-	~Worker();
+	Worker(bool=false);
 	bool login(std::string,std::string);
 	void bill();
 	void workersOnRoad(); 
  	void print();
+private:
+	bool isLoggedIn;
+	int id;
 };
 

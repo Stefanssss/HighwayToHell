@@ -2,6 +2,7 @@
 #include "Worker.h"
 #include "RoadSection.h"
 #include <vector>
+#include "Source.h"
 
 int main()
 {
@@ -49,7 +50,7 @@ int main()
 			std::cout << "Unesite krajnju lokaciju:" << std::endl;
 			std::cin >> loc2;
 			RoadSection road(loc1,loc2);
-			//Sada treba pronaci lokaciju u vektoru i izmjeniti odrediti funkcionalnost lokacije
+			//Sada treba pronaci lokaciju u vektoru i izmijeniti odrediti funkcionalnost lokacije
 			for (auto& it : roads)
 				if (it == road)
 					it.workable();
@@ -58,7 +59,7 @@ int main()
 		else if (temp == 3)
 		{
 			std::fstream dat("Gradovi.txt");
-			//uitavanje o stanju puteva iz datoteke i ispisivanje na standardni izlaz 
+			//ucitavanje o stanju puteva iz datoteke i ispisivanje na standardni izlaz 
 		}
 		else if (temp == 4)
 		{
