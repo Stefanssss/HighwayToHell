@@ -3,6 +3,7 @@
 #include <fstream>
 #include<tuple>
 #include <ctime>
+#include <algorithm>
 class Worker: public Human
 {
 public:
@@ -14,5 +15,7 @@ public:
 	void insertDriver();
 	void bill();
  	void print();
+private:
+	void skipLinesInFile(std::ifstream&,int); //pomocna funkcija koja ce nam pomoci kod pozicioniranja u datoteci
 };
 
