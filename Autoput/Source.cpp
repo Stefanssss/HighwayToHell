@@ -42,7 +42,7 @@ int main()
 			Driver dr;
 			dr.insertDriver();
 			dr.print();
-			worker1.bill(dr,cities);
+			worker1.bill(dr, cities);
 		}
 		else if (temp == 2)
 		{
@@ -92,11 +92,23 @@ int main()
 				file.close();
 			}
 		}
+		else if (temp == 0)
+		{
+			std::ifstream dat("Logo.txt");
+			if (dat.good())
+			{
+				printFile(dat);
+				dat.close();
+				std::cout<<"GOODBYE :)";
+			}
+
+		}
 		if (temp != 1 && temp != 2 && temp != 3 && temp != 4 && temp != 5 && temp != 0)
 		{
 			std::cout << "Greska pri unosu, pokusajte ponovo.";
 		}
 		std::cout << std::endl << std::endl;
 	} while (temp != 0);
-	std::getchar();
+	system("PAUSE");
+	return 0;
 }
