@@ -11,6 +11,9 @@ class Worker: public Human
 {
 public:
 	Worker(bool=false);
+	std::string getName();
+	std::string getSurname();
+	int getID();
 	bool login(std::string,std::string);
 	void bill(const Driver&);//izdavanje racuna vozacu tj. upisivanje u datoteku
 	void workersOnRoad(const std::string&,const std::string&);//unosenje podataka o radnicma koji odrzavaju puteve,stringovi su gradovi izmejdu kojih se vrsi odrzavanje 

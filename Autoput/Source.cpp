@@ -10,7 +10,6 @@ int main()
 	int i = 0;
 	do
 	{
-		//system("CLS");
 		std::string username, password;
 		std::cout << "Molimo radnika da unese podatke:" << std::endl;
 		std::cout << "	Unesite korisnicko ime: ";
@@ -27,17 +26,21 @@ int main()
 		else
 			std::cout << "Greske pri unosu podataka, unesite podatke ponovo." << std::endl;
 	} while (i == 0);
-	//system("CLS");
+	system("CLS");
 	int temp;
 	do
 	{
-		std::cout << "\nIzaberite funkciju:" << std::endl;
-		std::cout << "Za izdavanje racuna unesite 1" << std::endl;
-		std::cout << "Promjena statusa odredjene dionice 2" << std::endl;
-		std::cout << "Za prikaz o stanju na dionicam unesite 3" << std::endl;
-		std::cout << "Za evidenciju o izvodjacima radova unesite 4" << std::endl;
-		std::cout << "Za izlaz iz programa unesite 0" << std::endl;
-		std::cin >> temp;
+		std::cout << "Radnik: " << worker1.getName() << ' ' << worker1.getSurname() << "(identifikacioni broj:" << worker1.getID() << ") je uspjesno ulogovan." << std::endl;
+		std::cout << "\nIzaberite funkciju: " << std::endl;
+		std::cout << "========================================" << std::endl;
+		std::cout << "Izdavanje racuna[1]. " << std::endl;
+		std::cout << "Promjena statusa odredjene dionice[2]. " << std::endl; //npr: zatvaranje dionice zbog izvodjenja radova
+		std::cout << "Prikaz stanja na dionicama[3]. " << std::endl; //prohodnist i rastojanja izmedju svih dionica
+		std::cout << "Evidencije o izvodjacima radova[4]. " << std::endl; //firme koje vrse radove na putu i njihovi radnici
+		std::cout << "Evidencije o vozacima na autoputu[5]. " << std::endl; //ispisuje sve vozace koji se trenutno nalaze na putu
+		std::cout << "Kraj[0]." << std::endl;
+		std::cout << "========================================" << std::endl;
+		std::cout << "Unesite opciju: ";	std::cin >> temp; std::cout<<std::endl;
 		if (temp == 1)
 		{
 			Driver dr;
@@ -60,8 +63,8 @@ int main()
 					road.changeStatus(); //mijenja status dionice, takodje vrsi obradu podataka o kompaniji koja izvodi radove i njenim radnicima
 					if (!road.getRoadStatus())//ako se status mijenja iz aktivnog u neaktivno, ubacujemo kompaniju i radnike koji odrzavaju datu dionicu
 						worker1.workersOnRoad(loc1, loc2);
-					 else //ako je status neaktivan pa se mijenja u aktivan, brisemo kompaniju koja je odrzavala tu dionicu
-						worker1.workersOnRoadDelete(loc1,loc2);
+					else //ako je status neaktivan pa se mijenja u aktivan, brisemo kompaniju koja je odrzavala tu dionicu
+						worker1.workersOnRoadDelete(loc1, loc2);
 
 				}
 				else
@@ -82,11 +85,18 @@ int main()
 				printFile(file); //evidencija o izvodjacima radova
 				file.close();
 			}
-			else
-				std::cout << "Datoteka je prazna.";
-			
+
 		}
-		if (temp != 1 && temp != 2 && temp != 3 && temp != 4 && temp != 0)
+		else if (temp == 5)
+		{
+			std::ifstream file("Drivers.txt");
+			if (file.good())
+			{
+				printFile(file);
+				file.close();
+			}
+		}
+		if (temp != 1 && temp != 2 && temp != 3 && temp != 4 && temp != 5 && temp != 0)
 		{
 			std::cout << "Greska pri unosu, pokusajte ponovo.";
 		}

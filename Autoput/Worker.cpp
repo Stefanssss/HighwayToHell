@@ -2,6 +2,21 @@
 
 Worker::Worker(bool li) : isLoggedIn(li) {} //po defaultu radnik nije ulogovan dok se ne izvrsi provjera
 
+std::string Worker::getName()
+{
+	return name;
+}
+
+std::string Worker::getSurname()
+{
+	return surname;
+}
+
+int Worker::getID()
+{
+	return id;
+}
+
 bool Worker::login(std::string username, std::string password) //uzima red po red iz dateteke koja sadrzi podatke o radnicima i pretrazuje da li za dati username i pass postoji takav radnik u datoteci
 {
 	std::ifstream file("Workers.txt");
