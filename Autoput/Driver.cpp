@@ -19,12 +19,11 @@ void Driver::insertDriver()
 	do {
 		std::cout << "   Unesite kategoriju vozila: ";
 		std::cin >> category; this->category = category;
-		if (category != "I"&& category != "IA" && category != "IIA" && category != "IIB" && category != "III" && category != "IV")
+		if (category != "I"&& category != "IA" && category != "IIA" && category != "IIB" && category != "III" && category != "IV" && category != "II")
 			std::cout << "     Pogresan unos kategorije, molimo Vas unesite ponovo." << std::endl << std::endl;
-	} while (category != "I"&& category != "IA" && category != "IIA" && category != "IIB" && category != "III" && category != "IV");
+	} while (category != "I"&& category != "IA" && category != "IIA" && category != "IIB" && category != "III" && category != "IV" && category!="II");
 	std::cout << "   Uesite registraciju vozila: ";
 	std::cin >> plates; this->plates = plates;
-	//sada treba upisati u datoteku
 }
 void Driver::print()
 {

@@ -10,7 +10,7 @@ Berlin          Bremen          394km           da
 Munchen         Stuttgart       232km           da       
 Munchen         Hamburg         791km           da
 Munchen         Frankfurt       392km           da
-Munchen         Nurnberg        165km           ne
+Munchen         Nurnberg        165km           da
 Munchen         Dusseldorf      615km           da
 Munchen         Bremen          767km           da
 Stuttgart       Hamburg         655km           da
@@ -21,7 +21,7 @@ Stuttgart       Bremen          631km           da
 Hamburg         Frankfurt       492km           da
 Hamburg         Nurnberg        608km           da
 Hamburg         Dusseldorf      400km           da
-Hamburg         Bremen          125km           ne
+Hamburg         Bremen          125km           da
 Frankfurt       Nurnberg        226km           da
 Frankfurt       Dusseldorf      232km           da
 Frankfurt       Bremen          473km           da

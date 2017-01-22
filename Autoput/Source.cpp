@@ -4,7 +4,6 @@
 
 int main()
 {
-
 	Worker worker1;
 	int i = 0;
 	do
@@ -21,7 +20,7 @@ int main()
 		else
 			std::cout << std::endl << "Username ili password su pogresni, molimo unesite ponovo." << std::endl << std::endl;
 	} while (i == 0);
-	std::vector<std::string> citys = readLocations(); //ucitava u ovaj vektor sve postojece cvoroveautoputeva
+	std::vector<std::string> cities = readLocations(); //ucitava u ovaj vektor sve postojece cvoroveautoputeva
 	system("CLS");
 	int temp;
 	do
@@ -43,7 +42,7 @@ int main()
 			Driver dr;
 			dr.insertDriver();
 			dr.print();
-			worker1.bill(dr);
+			worker1.bill(dr,cities);
 		}
 		else if (temp == 2)
 		{

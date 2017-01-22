@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "UsefulFunctions.h"
 
 void skipLinesInFile(std::ifstream& dat, int n) //preskace odredjen broj linija u datoteci
@@ -74,4 +75,26 @@ std::string getPassword() //unos passworda sa *
 	pass[--i] = 0;
 	std::string password(pass); //pretvara char array u string
 	return password;
+}
+
+void printTime(std::ofstream &dat)
+{
+	time_t currentTime;
+	struct tm *localTime;
+	int minutes, seconds, hours, day, month, year;
+
+	time(&currentTime);
+	localTime = localtime(&currentTime);//uzmamo lokalno vrijeme
+
+	day = localTime->tm_mday; //dan u mjesecu
+	month = localTime->tm_mon;
+	month++; //zato sto ide [0] do [11]
+	year = 1900 + localTime->tm_year;
+	hours = localTime->tm_hour;
+	minutes = localTime->tm_min;
+	seconds = localTime->tm_sec;//rasporedjujemo vrijeme po satima, minutama i sekundama
+
+	dat << std::setw(2) << std::setfill('0') << std::right << day << '.' << std::setw(2) << std::setfill('0') << std::right << month << '.' << year << 
+	".  " << std::setw(2) << std::setfill('0') << std::right << hours <<
+	 ":" << std::setw(2) << std::setfill('0') << std::right << minutes << ":" << std::setw(2) << std::setfill('0') << std::right << seconds;
 }

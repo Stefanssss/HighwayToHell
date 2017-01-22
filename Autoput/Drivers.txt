@@ -3,3 +3,9 @@ Ime[16]          Prezime[16]      Registarske oznake[24]   Kategorija[12]
 stefan           stojanovic       123-a-456                I         
 stefan           stojanovic       123-k-456                IA        
 nikola           pejic            222-a-222                IA        
+stefan           stojanovic       111-k-222                I         
+nikola           pejic            231-a-234                IIA       
+stefan           stojanovic       111-j-222                IA        
+nikola           pejic            323-a-323                IV        
+Stefan           Stojanovic       123-a-456                I         
+stefan           stojanovic       123-k-456                III       

@@ -34,7 +34,6 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 				deleteBlanksInString(passFile);
 				if (passFile == password)
 				{
-					std::cout << "Uspjesno prijavljivanje.";
 					isLoggedIn = true;
 					temp = line.substr(5, 16);
 					deleteBlanksInString(temp);
@@ -55,13 +54,25 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 
 }
 
-void Worker::bill(const Driver &other)
+void Worker::bill(Driver &other, std::vector<std::string> vec)
 {
-	std::ofstream dat("Bill.txt");
+	std::ofstream dat("Bill.txt", std::ios::app);
 	if (dat.good())
 	{
-		dat << name << surname;
-		//treba upisati datoteku kako ce izgledati pocetni racun
+		std::string pom;
+		dat << "Dobro dosli na autoputeve Njemacke." << std::endl << "Vrijeme izdavanja racuna: ";
+		printTime(dat);
+		dat << std::endl << "Lokacija na kojoj se trenutno nalazite: ";
+		dat << vec[rand() % 8] << std::endl;//lokacija na kojoj se ulazi se bira random, na izlazu takodje, ali se pazi da je izlaz!=ulaz
+		pom = other.getName();
+		dat << "Ime: " << std::setfill(' ') << std::setw(17) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		pom = other.getSurname();
+		dat << "Prezime: " << std::setw(17) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		pom = other.getplates();
+		dat << "Registarske oznake: " << std::setw(25) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		pom = other.getCategory();
+		dat << "Kategorija: " << std::setw(10) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+
 	}
 	else
 		std::cout << "  Datoteka za upis racuna nije uspjesno otvorena.";
