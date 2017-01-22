@@ -36,6 +36,7 @@ int main()
 		std::cout << "Promjena statusa odredjene dionice 2" << std::endl;
 		std::cout << "Za prikaz o stanju na dionicam unesite 3" << std::endl;
 		std::cout << "Za evidenciju o izvodjacima radova unesite 4" << std::endl;
+		std::cout << "Za izlaz iz programa unesite 0" << std::endl;
 		std::cin >> temp;
 		if (temp == 1)
 		{

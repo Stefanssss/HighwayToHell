@@ -87,7 +87,7 @@ void RoadSection::changeStatus()
 		int br = rb+1; //brojac
 		std::vector<std::string> vec; //vektor u koji smjestamo liniju po liniju;
 		std::string str,a ; //str-string u koji ucitavamo liniju po liniju , a-string u kojem cuvamo liniju koja se prepravlja (onako kako bi trebala biti upisana u datoteku)
-		while (getline(file, str) && --br)
+		while (--br && getline(file, str))
 			vec.push_back(str);
 		getline(file, str);
 		a = str.substr(0, 48);

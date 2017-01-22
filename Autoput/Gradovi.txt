@@ -1,5 +1,6 @@
 Prvi grad[15]   Drugi grad[15]  Udaljenost[15]  Prohodnost
 ==========================================================
+Berlin          Munchen         584km           da
 Berlin          Stuttgart       631km           da
 Berlin          Hamburg         289km           da
 Berlin          Frankfurt       545km           da
@@ -17,16 +18,10 @@ Stuttgart       Frankfurt       203km           da
 Stuttgart       Nurnberg        206km           da
 Stuttgart       Dusseldorf      407km           da
 Stuttgart       Bremen          631km           da
-Hamburg         Franfkurt       492km           da
+Hamburg         Frankfurt        492km           da
 Hamburg         Nurnberg        608km           da
 Hamburg         Dusseldorf      400km           da
 Hamburg         Bremen          125km           da
-Frankfurt       Nurnberg        226km           da
-Frankfurt       Dusseldorf      232km           da
-Frankfurt       Bremen          473km           da
-Nurnberg        Dusseldorf      450km           da
-Nurnberg        Bremen          586km           da
-Dusseldorf      Bremen          292km           da
 Frankfurt       Nurnberg        226km           da
 Frankfurt       Dusseldorf      232km           da
 Frankfurt       Bremen          473km           da
