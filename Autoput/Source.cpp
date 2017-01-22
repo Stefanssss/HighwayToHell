@@ -60,8 +60,8 @@ int main()
 					road.changeStatus(); //mijenja status dionice, takodje vrsi obradu podataka o kompaniji koja izvodi radove i njenim radnicima
 					if (!road.getRoadStatus())//ako se status mijenja iz aktivnog u neaktivno, ubacujemo kompaniju i radnike koji odrzavaju datu dionicu
 						worker1.workersOnRoad(loc1, loc2);
-					 //ako je status neaktivan pa se mijenja u aktivan, brisemo kompaniju koja je odrzavala tu dionicu
-						//worker1.
+					 else //ako je status neaktivan pa se mijenja u aktivan, brisemo kompaniju koja je odrzavala tu dionicu
+						worker1.workersOnRoadDelete(loc1,loc2);
 
 				}
 				else

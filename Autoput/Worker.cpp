@@ -84,15 +84,39 @@ void Worker::print()
 }
 
 
-void workersOnRoadDelete(const std::string &loc1, const std::string &loc2)
+void Worker::workersOnRoadDelete(const std::string &loc1, const std::string &loc2)
 {
 	std::ifstream file("WorkersOnRoad.txt");
-	std::string s1 = loc1 + '-' + loc2, s2 = loc2 + '-' + loc1;
+	std::string s1 = loc1 + '-' + loc2, s2 = loc2 + '-' + loc1; //stringovi koji sadrze nazive gradova izmedju kojih prestaju radovi
 	if (file.good())
 	{
-		std::string str; //pomocna promjenjiva u koju ucitavamo liniju po liniju iz datoteke
+		std::string str,str1; //str-pomocna promjenjiva u koju ucitavamo liniju po liniju iz datoteke,str1-ucitavamo samo nazive gradova iz linije
 		std::vector<std::string> vec; //vektor stringova
-		//while(getline(file,str))
+		while (getline(file, str))
+		{
+			if (str.length() > 24) //do dvotacke 24 karatkera (citanje na osnovu formatiranog upisa u datoteku)
+				if (str.substr(0, 24) == "Dionica koja se odrzava:") //ako linija pocinje sa "Dionica koja se odrzava:" pregledamo da li se iza toga nalaze nazivi gradova koji nam trebaju
+				{
+					str1 = str.substr(25, str.length() - 25);
+					if (str1 == s1 ||str1 == s1) //ako su to trazeni gradovi preskoci sve linije do sledece dionice
+						while (getline(file, str))
+						{
+							if (str.substr(0, 24) == "Dionica koja se odrzava:" || file.eof())
+								break;
+						}
+					if (file.eof())
+						break; //ako smo izasli iz ugnijezdene while petlje i dosli do EOF izadjimo i iz glavne while petlje
+				}
+			vec.push_back(str);
+		}
+		file.close();
+		std::ofstream file("WorkersOnRoad.txt"); //otvaramo datoteku koju cemo prepraviti tako da se kompanija koja je zavrsila radove vise ne nalazi u njoj
+		if (file.good())
+		{
+			for (auto &it : vec)
+				file << it << std::endl; //u datoteku upisujemo iz vektora koristeci iteratore
+			file.close();
+		}
 
 	}
 	else

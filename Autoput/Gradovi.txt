@@ -18,7 +18,7 @@ Stuttgart       Frankfurt       203km           da
 Stuttgart       Nurnberg        206km           da
 Stuttgart       Dusseldorf      407km           da
 Stuttgart       Bremen          631km           da
-Hamburg         Frankfurt        492km           da
+Hamburg         Frankfurt       492km           da
 Hamburg         Nurnberg        608km           da
 Hamburg         Dusseldorf      400km           da
 Hamburg         Bremen          125km           da
