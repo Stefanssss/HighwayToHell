@@ -1,7 +1,6 @@
 #include "Driver.h"
 #include "Worker.h"
 #include "RoadSection.h"
-#include <vector>
 
 int main()
 {
@@ -26,7 +25,8 @@ int main()
 		else
 			std::cout << "Greske pri unosu podataka, unesite podatke ponovo." << std::endl;
 	} while (i == 0);
-	system("CLS");
+	std::vector<std::string> citys = readLocations(); //ucitava u ovaj vektor sve postojece cvoroveautoputeva
+	//system("CLS");
 	int temp;
 	do
 	{
