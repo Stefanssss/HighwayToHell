@@ -17,20 +17,17 @@ int main()
 		std::cin >> password;
 
 		if (worker1.login(username, password))
-		{
-			std::cout << std::endl;
-			worker1.print();
 			i = 1;
-		}
 		else
-			std::cout << "Greske pri unosu podataka, unesite podatke ponovo." << std::endl;
+			std::cout << "Username ili password su pogresni, molimo unesite ponovo." << std::endl << std::endl;
 	} while (i == 0);
 	std::vector<std::string> citys = readLocations(); //ucitava u ovaj vektor sve postojece cvoroveautoputeva
-	//system("CLS");
+	system("CLS");
 	int temp;
 	do
 	{
-		std::cout << "Radnik: " << worker1.getName() << ' ' << worker1.getSurname() << "(identifikacioni broj:" << worker1.getID() << ") je uspjesno ulogovan." << std::endl;
+		std::cout << "Podaci o radniku: " << std::endl;
+		worker1.print(); std::cout << "  Status:                  prijavljen" << std::endl;
 		std::cout << "\nIzaberite funkciju: " << std::endl;
 		std::cout << "========================================" << std::endl;
 		std::cout << "Izdavanje racuna[1]. " << std::endl;
@@ -40,7 +37,7 @@ int main()
 		std::cout << "Evidencije o vozacima na autoputu[5]. " << std::endl; //ispisuje sve vozace koji se trenutno nalaze na putu
 		std::cout << "Kraj[0]." << std::endl;
 		std::cout << "========================================" << std::endl;
-		std::cout << "Unesite opciju: ";	std::cin >> temp; std::cout<<std::endl;
+		std::cout << "Unesite opciju: ";	std::cin >> temp; std::cout << std::endl;
 		if (temp == 1)
 		{
 			Driver dr;
@@ -53,9 +50,9 @@ int main()
 			std::string loc1, loc2;
 			bool flag = 0;
 			do {
-				std::cout << "Unesite pocetnu lokaciju: " << std::endl;
+				std::cout << "  Unesite pocetnu lokaciju: ";
 				std::cin >> loc1;
-				std::cout << "Unesite krajnju lokaciju: " << std::endl;
+				std::cout << "  Unesite krajnju lokaciju: ";
 				std::cin >> loc2;
 				RoadSection road(loc1, loc2); //konstruktor
 				if (flag = road.isExistingInFile()) //provjera da li gradovi postoje u datoteci
@@ -68,7 +65,7 @@ int main()
 
 				}
 				else
-					std::cout << "Jedna ili obe lokacije ne postoje u datoteci, molimo unesite ponovo.";
+					std::cout << "      Jedna ili obe lokacije ne postoje u datoteci, molimo unesite ponovo."<<std::endl;
 			} while (flag == false);
 
 		}
@@ -100,6 +97,7 @@ int main()
 		{
 			std::cout << "Greska pri unosu, pokusajte ponovo.";
 		}
+		std::cout << std::endl << std::endl;
 	} while (temp != 0);
 	std::getchar();
 }

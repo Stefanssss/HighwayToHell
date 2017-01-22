@@ -12,7 +12,7 @@ RoadSection::~RoadSection()
 
 void RoadSection::print()
 {
-	std::cout << "Dionica :" << begin << " " << end << " ";
+	std::cout << "  Dionica :" << begin << " " << end << " ";
 	if (is_working)
 		std::cout << "je u funkciji";
 	else

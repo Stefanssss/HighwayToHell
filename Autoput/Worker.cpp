@@ -45,8 +45,6 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 					this->id = std::stoi(line.substr(0, 1));
 					return true;// uspjesna prijava
 				}
-				else
-					std::cout << "Pogresan password.";
 			}
 		}
 		file.close();
@@ -66,7 +64,7 @@ void Worker::bill(const Driver &other)
 		//treba upisati datoteku kako ce izgledati pocetni racun
 	}
 	else
-		std::cout << "Datoteka za upis racuna nije uspjesno otvorena.";
+		std::cout << "  Datoteka za upis racuna nije uspjesno otvorena.";
 	dat.close();
 }
 
@@ -74,12 +72,12 @@ void Worker::workersOnRoad(const std::string& loc1, const std::string& loc2)
 {
 	std::string companyName, name1, surname1;
 	int n;
-	std::ofstream file("WorkersOnRoad.txt", std::ios::app);
-	getchar();
+	std::ofstream file("WorkersOnRoad.txt", std::ios::app); //datoteka u koju unosimo kompanije i radnike
+	getchar(); //kupi karatker koji se nalazi u bufferu
 	file << "Dionica koja se odrzava: " << loc1 << '-' << loc2 << std::endl;
-	std::cout << "	Unesite ime kompanije: "; std::getline(std::cin, companyName);
+	std::cout << "	Unesite ime kompanije koja je zaduzena za odrzavanje dionice: "; std::getline(std::cin, companyName);
 	file << "Ime kompanije:  " << companyName << std::endl;
-	std::cout << "	Unesite broj radnika: "; std::cin >> n;
+	std::cout << "	Unesite broj radnika koji ce raditi: "; std::cin >> n;
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "	Unesite ime radnika: "; std::cin >> name1;
@@ -95,7 +93,7 @@ void Worker::workersOnRoad(const std::string& loc1, const std::string& loc2)
 void Worker::print()
 {
 	Human::print();
-	std::cout << "Identifikacioni broj: " << id << std::endl;
+	std::cout << "  Identifikacioni broj:    " << id << std::endl;
 }
 
 
@@ -105,7 +103,7 @@ void Worker::workersOnRoadDelete(const std::string &loc1, const std::string &loc
 	std::string s1 = loc1 + '-' + loc2, s2 = loc2 + '-' + loc1; //stringovi koji sadrze nazive gradova izmedju kojih prestaju radovi
 	if (file.good())
 	{
-		std::string str,str1; //str-pomocna promjenjiva u koju ucitavamo liniju po liniju iz datoteke,str1-ucitavamo samo nazive gradova iz linije
+		std::string str, str1; //str-pomocna promjenjiva u koju ucitavamo liniju po liniju iz datoteke,str1-ucitavamo samo nazive gradova iz linije
 		std::vector<std::string> vec; //vektor stringova
 		while (getline(file, str))
 		{
