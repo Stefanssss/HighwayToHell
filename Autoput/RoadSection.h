@@ -10,7 +10,6 @@ class RoadSection
 public:
 	RoadSection(std::string,std::string,int=0,bool=false);
 	~RoadSection();
-	void issuing();
 	void print();
 	void workable();
 	double getDistance();//potrebno vracanja zbog izdavanja cijene

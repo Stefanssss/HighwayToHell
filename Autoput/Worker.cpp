@@ -65,14 +65,16 @@ void Worker::bill(Driver &other, std::vector<std::string> vec)
 		dat << std::endl << "Lokacija na kojoj se trenutno nalazite: ";
 		dat << vec[rand() % 8] << std::endl;//lokacija na kojoj se ulazi se bira random, na izlazu takodje, ali se pazi da je izlaz!=ulaz
 		pom = other.getName();
-		dat << "Ime: " << std::setfill(' ') << std::setw(17) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		dat << "Ime:                  " << std::setfill(' ') << std::setw(17) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
 		pom = other.getSurname();
-		dat << "Prezime: " << std::setw(17) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		dat << "Prezime:              " << std::setw(17) << std::left << const_cast<char*>(pom.c_str()) << std::endl; //castovanje u char array zbog manipulacuhe prilikom upisa
 		pom = other.getplates();
-		dat << "Registarske oznake: " << std::setw(25) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		dat << "Registarske oznake:   " << std::setw(25) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
 		pom = other.getCategory();
-		dat << "Kategorija: " << std::setw(10) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
-
+		dat << "Kategorija:           " << std::setw(10) << std::left << const_cast<char*>(pom.c_str()) << std::endl;
+		dat << "                Racun izdao:    " << name << ' ' << surname << std::endl;
+		dat << "                ID:             " << id << std::endl;
+		dat << "==============================================================" << std::endl;
 	}
 	else
 		std::cout << "  Datoteka za upis racuna nije uspjesno otvorena.";

@@ -1,7 +1,10 @@
 Dobro dosli na autoputeve Njemacke.
-Vrijeme izdavanja racuna: 22.01.2017.  21:32:22
+Vrijeme izdavanja racuna: 22.01.2017.  21:56:11
 Lokacija na kojoj se trenutno nalazite: Munchen
-Ime: stefan           
-Prezime: stojanovic       
-Registarske oznake: 123-k-456                
-Kategorija: III       
+Ime:                  Nikola           
+Prezime:              Pejic            
+Registarske oznake:   1                        
+Kategorija:           I         
+                Racun izdao:    Stefan Stojanovic
+                ID:             2
+==============================================================
