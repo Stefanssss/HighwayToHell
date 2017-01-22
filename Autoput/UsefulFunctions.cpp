@@ -13,3 +13,8 @@ void printFile(std::istream &file) //ispis kompletne datoteke
 	while (getline(file, line)) //uzima liniju po liniju i ispisuje dok se ne dodje do kraja datoteke
 		std::cout << line << std::endl;
 }
+
+void deleteBlanksInString(std::string &str)
+{
+	str.erase(remove_if(str.begin(), str.end(), static_cast<int(*)(int)>(isspace)), str.end());
+}

@@ -40,25 +40,18 @@ int main()
 		if (temp == 1)
 		{
 			Driver dr;
-			//  dr.insertDriver();
-			//  dr.print();
-			//  worker1.bill();
+			dr.insertDriver();
+			dr.print();
+			worker1.bill(dr);
 		}
 		else if (temp == 2)
 		{
 			std::string loc1, loc2;
-			//  std::vector<RoadSection> roads;
-			//treba unijeti podatke iz datoteke u vektor
-			std::cout << "Unesite pocetnu lokaciju:" << std::endl;
+			std::cout << "Unesite pocetnu lokaciju: " << std::endl;
 			std::cin >> loc1;
-			std::cout << "Unesite krajnju lokaciju:" << std::endl;
+			std::cout << "Unesite krajnju lokaciju: " << std::endl;
 			std::cin >> loc2;
-			RoadSection road(loc1,loc2);
-			//Sada treba pronaci lokaciju u vektoru i izmijeniti odrediti funkcionalnost lokacije
-			/*  for (auto& it : roads)
-				if (it == road)
-					it.workable();  */
-			//treba azurirati datoteku u kojoj se nalaze lokacije
+			RoadSection road(loc1,loc2); //konstruktor
 		}
 		else if (temp == 3)
 		{

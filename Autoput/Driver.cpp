@@ -1,10 +1,5 @@
 #include "Driver.h"
 
-
-Driver::Driver(std::string name, std::string surename, std::string category, std::string plates) :category(category), plates(plates)
-{
-	Human(name, surename);
-}
 void Driver::insertDriver()
 {
 	std::string name1, surname1, temp, category, plates;

@@ -12,20 +12,20 @@ bool Worker::login(std::string username, std::string password) //uzima red po re
 		while (getline(file, line))
 		{
 			usernameFile = line.substr(39, 12); //uzima username na osnovu pozicije u .txt datoteci
-			usernameFile.erase(remove_if(usernameFile.begin(), usernameFile.end(), static_cast<int(*)(int)>(isspace)), usernameFile.end()); //izbacuje sva prazna mjesta u stringu (sve bjeline)
+			deleteBlanksInString(usernameFile); //izbacuje sva prazna mjesta u stringu (Npr "OSI     " -> "OSI")!
 			if (usernameFile == username) //ako smo nasli username u bazi provjeravamo password , ako password nije ok napustamo provjeru
 			{
 				passFile = line.substr(55, 16);
-				passFile.erase(remove_if(passFile.begin(), passFile.end(), static_cast<int(*)(int)>(isspace)), passFile.end());
+				deleteBlanksInString(passFile);
 				if (passFile == password)
 				{
 					std::cout << "Uspjesno prijavljivanje.";
 					isLoggedIn = true;
 					temp = line.substr(5, 16);
-					temp.erase(remove_if(temp.begin(), temp.end(), static_cast<int(*)(int)>(isspace)), temp.end());
+					deleteBlanksInString(temp);
 					this->name = temp;
 					temp = line.substr(22, 16);
-					temp.erase(remove_if(temp.begin(), temp.end(), static_cast<int(*)(int)>(isspace)), temp.end());
+					deleteBlanksInString(temp);
 					this->surname = temp;
 					this->id = std::stoi(line.substr(0, 1));
 					return true;// uspjesna prijava

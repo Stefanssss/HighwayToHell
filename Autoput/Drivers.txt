@@ -1,2 +1,4 @@
 Ime[16]          Prezime[16]      Registarske oznake[24]   Kategorija[12]
 =========================================================================
+peja             jape             123-l-231                traktor   
+stefan           stojanovic       222-k-312                auto      
