@@ -61,3 +61,17 @@ std::vector<std::string> readLocations()
 		std::cout << "Problem sa otvaranjem datoteke 'Gradovi.txt'.";
 	return vec;
 }
+
+std::string getPassword() //unos passworda sa *
+{
+	char pass[20]; int i = 0;
+	while (pass[i - 1] != '\r')
+	{
+		pass[i] = _getch();
+		std::cout << '*';
+		i++;
+	}
+	pass[--i] = 0;
+	std::string password(pass); //pretvara char array u string
+	return password;
+}

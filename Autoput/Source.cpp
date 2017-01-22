@@ -14,12 +14,12 @@ int main()
 		std::cout << "	Unesite korisnicko ime: ";
 		std::cin >> username;
 		std::cout << "	Unesite password: ";
-		std::cin >> password;
+		password = getPassword();
 
 		if (worker1.login(username, password))
 			i = 1;
 		else
-			std::cout << "Username ili password su pogresni, molimo unesite ponovo." << std::endl << std::endl;
+			std::cout << std::endl << "Username ili password su pogresni, molimo unesite ponovo." << std::endl << std::endl;
 	} while (i == 0);
 	std::vector<std::string> citys = readLocations(); //ucitava u ovaj vektor sve postojece cvoroveautoputeva
 	system("CLS");
@@ -65,7 +65,7 @@ int main()
 
 				}
 				else
-					std::cout << "      Jedna ili obe lokacije ne postoje u datoteci, molimo unesite ponovo."<<std::endl;
+					std::cout << "      Jedna ili obe lokacije ne postoje u datoteci, molimo unesite ponovo." << std::endl;
 			} while (flag == false);
 
 		}
