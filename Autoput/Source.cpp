@@ -55,7 +55,14 @@ int main()
 				std::cin >> loc2;
 				RoadSection road(loc1, loc2); //konstruktor
 				if (flag = road.isExistingInFile()) //provjera da li gradovi postoje u datoteci
-					road.changeStatus(); //mijenja status dionice
+				{
+					road.changeStatus(); //mijenja status dionice, takodje vrsi obradu podataka o kompaniji koja izvodi radove i njenim radnicima
+					if (!road.getRoadStatus())//ako se status mijenja iz aktivnog u neaktivno, ubacujemo kompaniju i radnike koji odrzavaju datu dionicu
+						worker1.workersOnRoad(loc1, loc2);
+					 //ako je status neaktivan pa se mijenja u aktivan, brisemo kompaniju koja je odrzavala tu dionicu
+						//worker1.
+
+				}
 				else
 					std::cout << "Jedna ili obe lokacije ne postoje u datoteci, molimo unesite ponovo.";
 			} while (flag == false);
@@ -64,13 +71,19 @@ int main()
 		else if (temp == 3)
 		{
 			std::ifstream dat("Gradovi.txt");
-			printFile(dat);
-			//ucitavanje o stanju puteva iz datoteke i ispisivanje na standardni izlaz 
+			printFile(dat); //ucitavanje o stanju puteva iz datoteke i ispisivanje na standardni izlaz 
 		}
 		else if (temp == 4)
 		{
-			//evidencija o izvodjacima radova
-			//  worker1.workersOnRoad();
+			std::ifstream file("WorkersOnRoad.txt");
+			if (file.good())
+			{
+				printFile(file); //evidencija o izvodjacima radova
+				file.close();
+			}
+			else
+				std::cout << "Datoteka je prazna.";
+			
 		}
 		if (temp != 1 && temp != 2 && temp != 3 && temp != 4 && temp != 0)
 		{

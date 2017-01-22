@@ -55,23 +55,24 @@ void Worker::bill(const Driver &other)
 	dat.close();
 }
 
-void Worker::workersOnRoad()
+void Worker::workersOnRoad(const std::string& loc1, const std::string& loc2)
 {
 	std::string companyName, name1, surname1;
 	int n;
 	std::ofstream file("WorkersOnRoad.txt", std::ios::app);
-	std::cout << "	Unesite ime kompanije: " << std::endl;
-	std::cin >> companyName;
-	file <<"Ime kompanije:  "<< companyName << std::endl;
-	std::cout << "	Unesite broj radnika: " << std::endl; std::cin >> n;
+	getchar();
+	file << "Dionica koja se odrzava: " << loc1 << '-' << loc2 << std::endl;
+	std::cout << "	Unesite ime kompanije: "; std::getline(std::cin, companyName);
+	file << "Ime kompanije:  " << companyName << std::endl;
+	std::cout << "	Unesite broj radnika: "; std::cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		std::cout << "	Unesite ime radnika: " << std::endl; std::cin >> name1;
-		std::cout << "	Unesite prezime radnika: " << std::endl; std::cin >> surname1;
-		file << name1;
-		file << surname1<<std::endl;
+		std::cout << "	Unesite ime radnika: "; std::cin >> name1;
+		std::cout << "	Unesite prezime radnika: "; std::cin >> surname1;
+		file << name1 << ' ';
+		file << surname1 << std::endl;
 	}
-	file << "==========================================="<<std::endl;
+	file << "===========================================" << std::endl;
 }
 
 
@@ -80,4 +81,20 @@ void Worker::print()
 {
 	Human::print();
 	std::cout << "Identifikacioni broj: " << id << std::endl;
+}
+
+
+void workersOnRoadDelete(const std::string &loc1, const std::string &loc2)
+{
+	std::ifstream file("WorkersOnRoad.txt");
+	std::string s1 = loc1 + '-' + loc2, s2 = loc2 + '-' + loc1;
+	if (file.good())
+	{
+		std::string str; //pomocna promjenjiva u koju ucitavamo liniju po liniju iz datoteke
+		std::vector<std::string> vec; //vektor stringova
+		//while(getline(file,str))
+
+	}
+	else
+		std::cout << "Problem sa otvaranjem datoteke 'WorkersOnRoad.txt'.";
 }

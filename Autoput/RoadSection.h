@@ -17,6 +17,7 @@ public:
 	bool operator==(const RoadSection&);
 	bool isExistingInFile(); //pretrazuje da li u datoteci postoje dati gradovi i ako postoje upisuje ih u objekat
 	void changeStatus(); //promjena statusa dionice puta(ako je bio u funkciji-prestaje biti, a ako nije bio u funkciji-postaje u funkciji)
+	bool getRoadStatus();
 private:
 	std::string begin, end; //pocetak i kraj rute
 	int distance; //rastojanje izmedju ulaza i izlaza
