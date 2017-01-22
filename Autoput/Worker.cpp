@@ -98,7 +98,7 @@ void Worker::workersOnRoadDelete(const std::string &loc1, const std::string &loc
 				if (str.substr(0, 24) == "Dionica koja se odrzava:") //ako linija pocinje sa "Dionica koja se odrzava:" pregledamo da li se iza toga nalaze nazivi gradova koji nam trebaju
 				{
 					str1 = str.substr(25, str.length() - 25);
-					if (str1 == s1 ||str1 == s1) //ako su to trazeni gradovi preskoci sve linije do sledece dionice
+					if (str1 == s1 || str1 == s2) //ako su to trazeni gradovi preskoci sve linije do sledece dionice
 						while (getline(file, str))
 						{
 							if (str.substr(0, 24) == "Dionica koja se odrzava:" || file.eof())
