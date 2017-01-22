@@ -2,11 +2,13 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <iomanip>
 #include "UsefulFunctions.h"
 class RoadSection
 {
 public:
-	RoadSection(std::string,std::string,double=0,bool=false);
+	RoadSection(std::string,std::string,int=0,bool=false);
 	~RoadSection();
 	void issuing();
 	void print();
@@ -19,5 +21,7 @@ private:
 	std::string begin, end; //pocetak i kraj rute
 	int distance; //rastojanje izmedju ulaza i izlaza
 	bool is_working; //pokazuje da li je data dionica puta u funkciji
+	void changeStatusInFile();
+	int rb = -1; //broj reda u datoteci u kojem se nalaze dati gradovi (koristice se u nekim funkcijama clanicama)
 };
 

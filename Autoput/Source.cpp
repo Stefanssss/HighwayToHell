@@ -22,18 +22,18 @@ int main()
 		{
 			std::cout << std::endl;
 			worker1.print();
-			i=1;
+			i = 1;
 		}
 		else
 			std::cout << "Greske pri unosu podataka, unesite podatke ponovo." << std::endl;
-	} while (i==0);
+	} while (i == 0);
 	//system("CLS");
 	int temp;
 	do
 	{
 		std::cout << "\nIzaberite funkciju:" << std::endl;
-		std::cout << "Za izdavanje racuna unesite 1"<<std::endl;
-		std::cout << "Za rad sa dionicama unesite 2" << std::endl;
+		std::cout << "Za izdavanje racuna unesite 1" << std::endl;
+		std::cout << "Promjena statusa odredjene dionice 2" << std::endl;
 		std::cout << "Za prikaz o stanju na dionicam unesite 3" << std::endl;
 		std::cout << "Za evidenciju o izvodjacima radova unesite 4" << std::endl;
 		std::cin >> temp;
@@ -47,11 +47,19 @@ int main()
 		else if (temp == 2)
 		{
 			std::string loc1, loc2;
-			std::cout << "Unesite pocetnu lokaciju: " << std::endl;
-			std::cin >> loc1;
-			std::cout << "Unesite krajnju lokaciju: " << std::endl;
-			std::cin >> loc2;
-			RoadSection road(loc1,loc2); //konstruktor
+			bool flag = 0;
+			do {
+				std::cout << "Unesite pocetnu lokaciju: " << std::endl;
+				std::cin >> loc1;
+				std::cout << "Unesite krajnju lokaciju: " << std::endl;
+				std::cin >> loc2;
+				RoadSection road(loc1, loc2); //konstruktor
+				if (flag = road.isExistingInFile()) //provjera da li gradovi postoje u datoteci
+					road.changeStatus(); //mijenja status dionice
+				else
+					std::cout << "Jedna ili obe lokacije ne postoje u datoteci, molimo unesite ponovo.";
+			} while (flag == false);
+
 		}
 		else if (temp == 3)
 		{
@@ -64,7 +72,7 @@ int main()
 			//evidencija o izvodjacima radova
 			//  worker1.workersOnRoad();
 		}
-		if (temp != 1 && temp != 2 && temp != 3 && temp!=4 && temp != 0)
+		if (temp != 1 && temp != 2 && temp != 3 && temp != 4 && temp != 0)
 		{
 			std::cout << "Greska pri unosu, pokusajte ponovo.";
 		}
